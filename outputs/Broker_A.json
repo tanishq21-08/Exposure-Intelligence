@@ -1,0 +1,304 @@
+{
+  "locations": [
+    {
+      "address": {
+        "value": "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "confidence": 1.0,
+        "source": "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 3200000.0,
+        "confidence": 1.0,
+        "source": "3200000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Steel Frame",
+        "confidence": 1.0,
+        "source": "Steel Frame",
+        "type": "verbatim"
+      },
+      "occupancy": {
+        "value": "Warehouse/Storage",
+        "confidence": 1.0,
+        "source": "Warehouse",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 2004.0,
+        "confidence": 1.0,
+        "source": "2004",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 45000.0,
+        "confidence": 1.0,
+        "source": "45000",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Y",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "confidence": 1.0,
+        "source": "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 1850000.0,
+        "confidence": 1.0,
+        "source": "1850000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Masonry",
+        "confidence": 1.0,
+        "source": "Masonary",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Manufacturing",
+        "confidence": 1.0,
+        "source": "Light industrial",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1998.0,
+        "confidence": 1.0,
+        "source": "1998",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 2.0,
+        "confidence": 1.0,
+        "source": "2",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 22500.0,
+        "confidence": 1.0,
+        "source": "22500",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Y",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "7 Dockside Road, Liverpool L20 1BX",
+        "confidence": 1.0,
+        "source": "7 Dockside Road, Liverpool L20 1BX",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 2400000.0,
+        "confidence": 1.0,
+        "source": "\u00a32.4m",
+        "type": "derived"
+      },
+      "construction": {
+        "value": "Reinforced Concrete",
+        "confidence": 1.0,
+        "source": "Reinforced Concrete",
+        "type": "verbatim"
+      },
+      "occupancy": {
+        "value": "Warehouse/Storage",
+        "confidence": 1.0,
+        "source": "Warehouse",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": null,
+        "confidence": 0.5,
+        "source": "",
+        "type": "derived"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 38000.0,
+        "confidence": 1.0,
+        "source": "38000",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "No",
+        "confidence": 1.0,
+        "source": "N",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "confidence": 1.0,
+        "source": "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 950000.0,
+        "confidence": 1.0,
+        "source": "950000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "UNKNOWN",
+        "confidence": 0.5,
+        "source": "Concrete",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Office",
+        "confidence": 1.0,
+        "source": "Office",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1975.0,
+        "confidence": 1.0,
+        "source": "1975",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 4.0,
+        "confidence": 1.0,
+        "source": "4",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 12000.0,
+        "confidence": 1.0,
+        "source": "12000",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Y",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "confidence": 1.0,
+        "source": "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 1200000.0,
+        "confidence": 1.0,
+        "source": "1200000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Steel Frame",
+        "confidence": 1.0,
+        "source": "Steel Frame",
+        "type": "verbatim"
+      },
+      "occupancy": {
+        "value": "Mixed/Other",
+        "confidence": 1.0,
+        "source": "Mixed use",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 2011.0,
+        "confidence": 1.0,
+        "source": "2011",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 15500.0,
+        "confidence": 1.0,
+        "source": "15500",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Y",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "88 Canal Street, Manchester M1 3WD",
+        "confidence": 1.0,
+        "source": "88 Canal Street, Manchester M1 3WD",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 1600000.0,
+        "confidence": 1.0,
+        "source": "1600000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "UNKNOWN",
+        "confidence": 0.5,
+        "source": "",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Retail",
+        "confidence": 1.0,
+        "source": "Retail",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1930.0,
+        "confidence": 1.0,
+        "source": "1930",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 3.0,
+        "confidence": 1.0,
+        "source": "3",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 9800.0,
+        "confidence": 1.0,
+        "source": "9800",
+        "type": "verbatim"
+      },
+      "sprinklered": {
+        "value": "No",
+        "confidence": 1.0,
+        "source": "N",
+        "type": "derived"
+      }
+    }
+  ]
+}

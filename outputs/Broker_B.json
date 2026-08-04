@@ -1,0 +1,304 @@
+{
+  "locations": [
+    {
+      "address": {
+        "value": "Ground floor retail, 145 Briggate, Leeds, LS1 6HW",
+        "confidence": 1.0,
+        "source": "Ground floor retail, 145 Briggate,\\nLeeds, LS1 6HW",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 780000.0,
+        "confidence": 1.0,
+        "source": "780000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Masonry",
+        "confidence": 0.9,
+        "source": "Brick / masonry",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Retail",
+        "confidence": 1.0,
+        "source": "Retail (fashion)",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1962.0,
+        "confidence": 1.0,
+        "source": "1962",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 3444.45,
+        "confidence": 1.0,
+        "source": "320",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Sprinklers throughout",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Cash & carry warehouse, Trafford Park, Manchester M17 1WA",
+        "confidence": 1.0,
+        "source": "Cash & carry warehouse, Trafford Park, Manchester M17 1WA",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 4500000.0,
+        "confidence": 1.0,
+        "source": "4500000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Steel Frame",
+        "confidence": 0.9,
+        "source": "Steel portal frame, brick infill",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Warehouse/Storage",
+        "confidence": 1.0,
+        "source": "Cash & carry",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1988.0,
+        "confidence": 0.8,
+        "source": "circa 1988",
+        "type": "derived"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 66736.2,
+        "confidence": 1.0,
+        "source": "6200",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "No",
+        "confidence": 0.5,
+        "source": "",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Restaurant premises, 22 St Marys St, Cardiff CF10 1AT",
+        "confidence": 1.0,
+        "source": "Restaurant premises, 22 St Marys St, Cardiff CF10 1AT",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": null,
+        "confidence": 0.3,
+        "source": "TBC",
+        "type": "derived"
+      },
+      "construction": {
+        "value": "Timber Frame",
+        "confidence": 1.0,
+        "source": "Timber frame (listed bldg)",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Restaurant",
+        "confidence": 1.0,
+        "source": "Restaurant",
+        "type": "verbatim"
+      },
+      "year_built": {
+        "value": 1899.0,
+        "confidence": 0.7,
+        "source": "pre-1900",
+        "type": "derived"
+      },
+      "storeys": {
+        "value": 2.0,
+        "confidence": 1.0,
+        "source": "2",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 2260.42,
+        "confidence": 1.0,
+        "source": "210",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "No",
+        "confidence": 0.5,
+        "source": "",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Distribution hub, Junction 28 Logistics Pk, Derby DE55 4QT",
+        "confidence": 1.0,
+        "source": "Distribution hub, Junction 28 Logistics Pk, Derby DE55 4QT",
+        "type": "verbatim"
+      },
+      "tiv_gbp": {
+        "value": 9200000.0,
+        "confidence": 1.0,
+        "source": "9200000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Steel Frame",
+        "confidence": 1.0,
+        "source": "Steel-frame, insulated cladding, built early 90s",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Warehouse/Storage",
+        "confidence": 1.0,
+        "source": "Storage & distribution",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 1993.0,
+        "confidence": 1.0,
+        "source": "1993",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 1.0,
+        "confidence": 1.0,
+        "source": "1",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 159299.2,
+        "confidence": 1.0,
+        "source": "14800",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Sprinklered + hydrants",
+        "type": "derived"
+      }
+    },
+    {
+      "address": {
+        "value": "Office & showroom, see broker note",
+        "confidence": 0.3,
+        "source": "Office & showroom, see broker note",
+        "type": "derived"
+      },
+      "tiv_gbp": {
+        "value": 1350000.0,
+        "confidence": 1.0,
+        "source": "1350000",
+        "type": "verbatim"
+      },
+      "construction": {
+        "value": "Reinforced Concrete",
+        "confidence": 1.0,
+        "source": "RC frame",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Office",
+        "confidence": 1.0,
+        "source": "Office / showroom",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": 2007.0,
+        "confidence": 1.0,
+        "source": "2007",
+        "type": "verbatim"
+      },
+      "storeys": {
+        "value": 3.0,
+        "confidence": 1.0,
+        "source": "3",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 11840.3,
+        "confidence": 1.0,
+        "source": "1100",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "Yes",
+        "confidence": 1.0,
+        "source": "Yes",
+        "type": "verbatim"
+      }
+    },
+    {
+      "address": {
+        "value": "Unit 9, Eastgate Ind. Est., Glasgow G32 8RG",
+        "confidence": 0.3,
+        "source": "Unit 9, Eastgate Ind. Est., Glasgow G32 8RG",
+        "type": "derived"
+      },
+      "tiv_gbp": {
+        "value": null,
+        "confidence": 0.3,
+        "source": "",
+        "type": "derived"
+      },
+      "construction": {
+        "value": "Reinforced Concrete",
+        "confidence": 1.0,
+        "source": "Concrete",
+        "type": "derived"
+      },
+      "occupancy": {
+        "value": "Manufacturing",
+        "confidence": 1.0,
+        "source": "Light manufacturing",
+        "type": "derived"
+      },
+      "year_built": {
+        "value": null,
+        "confidence": 0.3,
+        "source": "",
+        "type": "derived"
+      },
+      "storeys": {
+        "value": 2.0,
+        "confidence": 1.0,
+        "source": "2",
+        "type": "verbatim"
+      },
+      "floor_area_sqft": {
+        "value": 9579.88,
+        "confidence": 1.0,
+        "source": "890",
+        "type": "derived"
+      },
+      "sprinklered": {
+        "value": "Unknown",
+        "confidence": 0.5,
+        "source": "Unknown",
+        "type": "verbatim"
+      }
+    }
+  ]
+}
