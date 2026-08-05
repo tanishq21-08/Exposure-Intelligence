@@ -135,15 +135,15 @@
       ]
     },
     "occupancy": {
-      "value": "UNKNOWN",
-      "confidence": 0.6,
-      "agreement": "3/5",
+      "value": "Mixed/Other",
+      "confidence": 0.4,
+      "agreement": "2/5",
       "all_values": [
-        "Manufacturing",
+        "Mixed/Other",
         "UNKNOWN",
         "Manufacturing",
-        "UNKNOWN",
-        "UNKNOWN"
+        "Mixed/Other",
+        "Manufacturing"
       ]
     },
     "year_built": {
@@ -245,7 +245,7 @@
       ]
     },
     "year_built": {
-      "value": "None",
+      "value": null,
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
@@ -319,15 +319,15 @@
       ]
     },
     "construction": {
-      "value": "UNKNOWN",
-      "confidence": 0.8,
-      "agreement": "4/5",
+      "value": "Reinforced Concrete",
+      "confidence": 0.6,
+      "agreement": "3/5",
       "all_values": [
+        "UNKNOWN",
+        "UNKNOWN",
         "Reinforced Concrete",
-        "UNKNOWN",
-        "UNKNOWN",
-        "UNKNOWN",
-        "UNKNOWN"
+        "Reinforced Concrete",
+        "Reinforced Concrete"
       ]
     },
     "occupancy": {

@@ -91,9 +91,10 @@ def extract_with_consistency(text, n=5, temperature=0.7):
         location_result = {}
         for field in field_names:
             values = [str(getattr(run.locations[i], field).value) for run in runs]  # this field across all runs
-            most_common, count = Counter(values).most_common(1)[0]                  # majority vote
+            most_common, count = Counter(values).most_common(1)[0]
+            final_value=None if most_common =="None" else most_common                # majority vote
             location_result[field] = {
-                "value": most_common,
+                "value": final_value,
                 "confidence": round(count / n, 2),   # agreement fraction = REAL confidence
                 "agreement": f"{count}/{n}",
                 "all_values": values,                # keep so you can SEE the disagreement
