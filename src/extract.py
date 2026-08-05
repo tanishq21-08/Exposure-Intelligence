@@ -65,28 +65,62 @@ Rules:
 -for the sprinklered part, be consistent, it's either Yes or No or Unknown
 -- For the address field: assess whether it is a COMPLETE, usable address (has a street and locality/postcode). If it is clearly incomplete or refers elsewhere (e.g. "see broker note", "TBC", "as above", partial fragments), still return what's there, but set confidence LOW (around 0.3) and type "derived". A complete, verbatim address gets high confidence; an incomplete one must be flagged with low confidence."""
 
-def extract(text):
+def extract(text, temperature=0):
     completion = client.beta.chat.completions.parse(
         model="gpt-4o-2024-08-06",
-        temperature=0,
+        temperature=temperature,
         messages=[
             {"role": "system", "content": SYSTEM},
             {"role": "user", "content": f"Statement of Values:\n\n{text}"},
         ],
-        response_format=Portfolio,      # <- your schema enforces the output shape
+        response_format=Portfolio,
     )
     return completion.choices[0].message.parsed
 
-# ---- Stage 4: run on both brokers and save ----
+from collections import Counter
+
+def extract_with_consistency(text, n=5, temperature=0.7):
+    runs = [extract(text, temperature=temperature) for _ in range(n)]   # n samples at higher temp
+
+    num_locations = len(runs[0].locations)
+    field_names = ["address", "tiv_gbp", "construction", "occupancy",
+                   "year_built", "storeys", "floor_area_sqft", "sprinklered"]
+
+    consolidated = []
+    for i in range(num_locations):
+        location_result = {}
+        for field in field_names:
+            values = [str(getattr(run.locations[i], field).value) for run in runs]  # this field across all runs
+            most_common, count = Counter(values).most_common(1)[0]                  # majority vote
+            location_result[field] = {
+                "value": most_common,
+                "confidence": round(count / n, 2),   # agreement fraction = REAL confidence
+                "agreement": f"{count}/{n}",
+                "all_values": values,                # keep so you can SEE the disagreement
+            }
+        consolidated.append(location_result)
+    return consolidated
+
+
+
 if __name__ == "__main__":
     path = "data/Exposure_SOV_practice.xlsx"
-    for sheet in ["Broker A - Meridian", "Broker B - Castlegate"]:
-        text = sheet_to_text(path, sheet)
-        result = extract(text)
-        out = f"outputs/{sheet.split(' - ')[0].replace(' ', '_')}.json"
-        with open(out, "w") as f:
-            json.dump(result.model_dump(), f, indent=2, default=str)
-        print(f"{sheet}: {len(result.locations)} locations -> {out}")
+    text = sheet_to_text(path, "Broker A - Meridian")
+    result = extract_with_consistency(text, n=5)
+    with open("outputs/Broker_A_consistency.json", "w") as f:
+        json.dump(result, f, indent=2)
+    print("done -> outputs/Broker_A_consistency.json")
+
+# ---- Stage 4: run on both brokers and save ----
+# if __name__ == "__main__":
+#     path = "data/Exposure_SOV_practice.xlsx"
+#     for sheet in ["Broker A - Meridian", "Broker B - Castlegate"]:
+#         text = sheet_to_text(path, sheet)
+#         result = extract(text)
+#         out = f"outputs/{sheet.split(' - ')[0].replace(' ', '_')}.json"
+#         with open(out, "w") as f:
+#             json.dump(result.model_dump(), f, indent=2, default=str)
+#         print(f"{sheet}: {len(result.locations)} locations -> {out}")
 
 
 

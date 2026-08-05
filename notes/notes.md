@@ -7,3 +7,5 @@ Made some changes in the prompt:
 1) Unit conversion handled well
 2) Derived or verbatim labels are now strong enough
 3) Confidence is still not trustworthy because the in case of broker A for concrete the construction became reinforced concrete with a confidence score of 0.8 and for the broker B for concrete the construction was reinforced concrete again but with a confidence score of 1.0
+
+

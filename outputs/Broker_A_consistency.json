@@ -1,0 +1,590 @@
+[
+  {
+    "address": {
+      "value": "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL",
+        "Unit 4, Avonmouth Distribution Park, Bristol BS11 8DL"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "3200000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "3200000.0",
+        "3200000.0",
+        "3200000.0",
+        "3200000.0",
+        "3200000.0"
+      ]
+    },
+    "construction": {
+      "value": "Steel Frame",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame"
+      ]
+    },
+    "occupancy": {
+      "value": "Warehouse/Storage",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage"
+      ]
+    },
+    "year_built": {
+      "value": "2004.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "2004.0",
+        "2004.0",
+        "2004.0",
+        "2004.0",
+        "2004.0"
+      ]
+    },
+    "storeys": {
+      "value": "1.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "45000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "45000.0",
+        "45000.0",
+        "45000.0",
+        "45000.0",
+        "45000.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "Yes",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+      ]
+    }
+  },
+  {
+    "address": {
+      "value": "12 Kingsway Trading Estate, Birmingham B18 6NF",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "12 Kingsway Trading Estate, Birmingham B18 6NF",
+        "12 Kingsway Trading Estate, Birmingham B18 6NF"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "1850000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1850000.0",
+        "1850000.0",
+        "1850000.0",
+        "1850000.0",
+        "1850000.0"
+      ]
+    },
+    "construction": {
+      "value": "Masonry",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Masonry",
+        "Masonry",
+        "Masonry",
+        "Masonry",
+        "Masonry"
+      ]
+    },
+    "occupancy": {
+      "value": "UNKNOWN",
+      "confidence": 0.6,
+      "agreement": "3/5",
+      "all_values": [
+        "Manufacturing",
+        "UNKNOWN",
+        "Manufacturing",
+        "UNKNOWN",
+        "UNKNOWN"
+      ]
+    },
+    "year_built": {
+      "value": "1998.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1998.0",
+        "1998.0",
+        "1998.0",
+        "1998.0",
+        "1998.0"
+      ]
+    },
+    "storeys": {
+      "value": "2.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "2.0",
+        "2.0",
+        "2.0",
+        "2.0",
+        "2.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "22500.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "22500.0",
+        "22500.0",
+        "22500.0",
+        "22500.0",
+        "22500.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "Yes",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+      ]
+    }
+  },
+  {
+    "address": {
+      "value": "7 Dockside Road, Liverpool L20 1BX",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "7 Dockside Road, Liverpool L20 1BX",
+        "7 Dockside Road, Liverpool L20 1BX",
+        "7 Dockside Road, Liverpool L20 1BX",
+        "7 Dockside Road, Liverpool L20 1BX",
+        "7 Dockside Road, Liverpool L20 1BX"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "2400000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "2400000.0",
+        "2400000.0",
+        "2400000.0",
+        "2400000.0",
+        "2400000.0"
+      ]
+    },
+    "construction": {
+      "value": "Reinforced Concrete",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Reinforced Concrete",
+        "Reinforced Concrete",
+        "Reinforced Concrete",
+        "Reinforced Concrete",
+        "Reinforced Concrete"
+      ]
+    },
+    "occupancy": {
+      "value": "Warehouse/Storage",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage",
+        "Warehouse/Storage"
+      ]
+    },
+    "year_built": {
+      "value": "None",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "None",
+        "None",
+        "None",
+        "None",
+        "None"
+      ]
+    },
+    "storeys": {
+      "value": "1.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "38000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "38000.0",
+        "38000.0",
+        "38000.0",
+        "38000.0",
+        "38000.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "No",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "No",
+        "No",
+        "No",
+        "No",
+        "No"
+      ]
+    }
+  },
+  {
+    "address": {
+      "value": "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT",
+        "Suite 3, Meridian House, 40 High St, Leeds LS1 4DT"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "950000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "950000.0",
+        "950000.0",
+        "950000.0",
+        "950000.0",
+        "950000.0"
+      ]
+    },
+    "construction": {
+      "value": "UNKNOWN",
+      "confidence": 0.8,
+      "agreement": "4/5",
+      "all_values": [
+        "Reinforced Concrete",
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN"
+      ]
+    },
+    "occupancy": {
+      "value": "Office",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Office",
+        "Office",
+        "Office",
+        "Office",
+        "Office"
+      ]
+    },
+    "year_built": {
+      "value": "1975.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1975.0",
+        "1975.0",
+        "1975.0",
+        "1975.0",
+        "1975.0"
+      ]
+    },
+    "storeys": {
+      "value": "4.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "4.0",
+        "4.0",
+        "4.0",
+        "4.0",
+        "4.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "12000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "12000.0",
+        "12000.0",
+        "12000.0",
+        "12000.0",
+        "12000.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "Yes",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+      ]
+    }
+  },
+  {
+    "address": {
+      "value": "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB",
+        "Retail Unit 2, Gallows Corner Retail Park, Romford RM3 0BB"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "1200000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1200000.0",
+        "1200000.0",
+        "1200000.0",
+        "1200000.0",
+        "1200000.0"
+      ]
+    },
+    "construction": {
+      "value": "Steel Frame",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame",
+        "Steel Frame"
+      ]
+    },
+    "occupancy": {
+      "value": "Mixed/Other",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Mixed/Other",
+        "Mixed/Other",
+        "Mixed/Other",
+        "Mixed/Other",
+        "Mixed/Other"
+      ]
+    },
+    "year_built": {
+      "value": "2011.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "2011.0",
+        "2011.0",
+        "2011.0",
+        "2011.0",
+        "2011.0"
+      ]
+    },
+    "storeys": {
+      "value": "1.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "15500.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "15500.0",
+        "15500.0",
+        "15500.0",
+        "15500.0",
+        "15500.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "Yes",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+      ]
+    }
+  },
+  {
+    "address": {
+      "value": "88 Canal Street, Manchester M1 3WD",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "88 Canal Street, Manchester M1 3WD",
+        "88 Canal Street, Manchester M1 3WD",
+        "88 Canal Street, Manchester M1 3WD",
+        "88 Canal Street, Manchester M1 3WD",
+        "88 Canal Street, Manchester M1 3WD"
+      ]
+    },
+    "tiv_gbp": {
+      "value": "1600000.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1600000.0",
+        "1600000.0",
+        "1600000.0",
+        "1600000.0",
+        "1600000.0"
+      ]
+    },
+    "construction": {
+      "value": "UNKNOWN",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN",
+        "UNKNOWN"
+      ]
+    },
+    "occupancy": {
+      "value": "Retail",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "Retail",
+        "Retail",
+        "Retail",
+        "Retail",
+        "Retail"
+      ]
+    },
+    "year_built": {
+      "value": "1930.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "1930.0",
+        "1930.0",
+        "1930.0",
+        "1930.0",
+        "1930.0"
+      ]
+    },
+    "storeys": {
+      "value": "3.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "3.0",
+        "3.0",
+        "3.0",
+        "3.0",
+        "3.0"
+      ]
+    },
+    "floor_area_sqft": {
+      "value": "9800.0",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "9800.0",
+        "9800.0",
+        "9800.0",
+        "9800.0",
+        "9800.0"
+      ]
+    },
+    "sprinklered": {
+      "value": "No",
+      "confidence": 1.0,
+      "agreement": "5/5",
+      "all_values": [
+        "No",
+        "No",
+        "No",
+        "No",
+        "No"
+      ]
+    }
+  }
+]
