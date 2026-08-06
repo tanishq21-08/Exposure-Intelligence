@@ -20,4 +20,22 @@ for example: occupancy "Light Industrial" gave me 3 different answers across 5 r
 Limitation:confidence numbers are noisy at n=5 (same field ranged 0.4-0.8 across runs);
 more samples stabilizes but costs more
 
+Now calibration whether the confidence layer actually works:
+
+I added the calibration layers and that gave me 82% accuracy for the areas where LLM was 100% confident. So clearly the model is overconfident and I measured the gap is ~0.18 ECE
+
+1.0-confidence fields were only 82% accurate->ECE 0.189->self-consistency confidence is overconfident
+
+Root Cause: self-consistency catches  wavering, not consistent-but-wrong errors(the coherent-but-wrong-gap)
+
+Caveats: n=36(noisy), strict grading of ambigious fields inflates error somewhat
+
+# Two next steps could be:
+1) Fix the overconfidence by tempearture scaling calibration (Guo's paper):Apply a correction that scales the confidence numbers down so 1.0-claims become ~0.82, making the scores honest.This closes the loop fully-"I detecetd the overconfidence and corrected it, dropping the ECE from 0.189 to X."That's the complete, impressive version.
+2) Run it on more data to get a less noisy ECE.
+
+
+
+
+
 

@@ -135,14 +135,14 @@
       ]
     },
     "occupancy": {
-      "value": "Mixed/Other",
-      "confidence": 0.4,
-      "agreement": "2/5",
+      "value": "Manufacturing",
+      "confidence": 0.6,
+      "agreement": "3/5",
       "all_values": [
         "Mixed/Other",
-        "UNKNOWN",
         "Manufacturing",
         "Mixed/Other",
+        "Manufacturing",
         "Manufacturing"
       ]
     },
@@ -323,10 +323,10 @@
       "confidence": 0.6,
       "agreement": "3/5",
       "all_values": [
-        "UNKNOWN",
+        "Reinforced Concrete",
         "UNKNOWN",
         "Reinforced Concrete",
-        "Reinforced Concrete",
+        "UNKNOWN",
         "Reinforced Concrete"
       ]
     },
