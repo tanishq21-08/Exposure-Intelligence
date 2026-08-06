@@ -1,6 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 from schema import Portfolio          # <-- importing from your own module
+from config import config
 
 load_dotenv()
 client = OpenAI()
@@ -22,14 +23,15 @@ Rules:
 - For the address: if clearly incomplete or references elsewhere ("see broker note", "TBC"), return what's there but set confidence low (~0.3) and type derived.
 - If a value is genuinely missing, set value to null (numbers) or "UNKNOWN", and lower confidence. NEVER invent a value."""
 
-def extract(text, temperature=0):
+from config import config
+
+def extract(text, temperature=None):
+    if temperature is None:
+        temperature = config["extraction_temperature"]
     completion = client.beta.chat.completions.parse(
-        model="gpt-4o-2024-08-06",
+        model=config["model"],                    
         temperature=temperature,
-        messages=[
-            {"role": "system", "content": SYSTEM},
-            {"role": "user", "content": f"Statement of Values:\n\n{text}"},
-        ],
+        messages=[...],                            
         response_format=Portfolio,
     )
     return completion.choices[0].message.parsed

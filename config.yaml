@@ -1,0 +1,32 @@
+# Model settings
+model: "gpt-4o-2024-08-06"
+extraction_temperature: 0
+confidence_temperature: 0.7
+n_samples: 5
+
+# Paths
+data_path: "data/Exposure_SOV_practice.xlsx"
+output_path: "outputs/Broker_A_consistency.json"
+
+# Calibration
+floor_area_tolerance: 0.02
+
+# Controlled vocabularies
+construction_vocab:
+  - Steel Frame
+  - Reinforced Concrete
+  - Masonry
+  - Timber Frame
+  - UNKNOWN
+occupancy_vocab:
+  - Warehouse/Storage
+  - Office
+  - Retail
+  - Restaurant
+  - Manufacturing
+  - Mixed/Other
+  - UNKNOWN
+sprinklered_vocab:
+  - "Y"
+  - "N"
+  - UNKNOWN

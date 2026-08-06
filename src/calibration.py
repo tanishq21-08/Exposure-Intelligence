@@ -1,5 +1,6 @@
 import pandas as pd
 from collections import defaultdict
+from config import config
 
 def _clean_num(x):
     if x is None: return None
@@ -40,7 +41,7 @@ def is_correct(field, predicted, truth):
         p, t = _clean_num(predicted), _clean_num(truth)
         if p is None or t is None: return False
         if t == 0: return p == 0
-        tol = 0.02 if field == "floor_area_sqft" else 0.0
+        tol = config["floor_area_tolerance"] if field == "floor_area_sqft" else 0.0
         return abs(p - t) <= abs(t) * tol or p == t
     return pred_str == truth_str
 

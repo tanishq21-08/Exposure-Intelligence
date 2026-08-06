@@ -2,8 +2,9 @@ import json
 from ingestion import sheet_to_text
 from confidence import extract_with_consistency
 from calibration import load_ground_truth, calibrate
+from config import config
 
-path = "data/Exposure_SOV_practice.xlsx"
+path = config["data_path"]
 
 if __name__ == "__main__":
     # ---- EXTRACTION (API calls) — uncomment to regenerate the JSON ----
@@ -15,7 +16,7 @@ if __name__ == "__main__":
     # ---- CALIBRATION (no API calls) — reads saved JSON ----
     truth = load_ground_truth(path)
     truth_A = {k: v for k, v in truth.items() if k[0] == "A"}
-    with open("outputs/Broker_A_consistency.json") as f:
+    with open(config["output_path"]) as f:
         consolidated = json.load(f)
 
     calibrate(consolidated, truth_A, "Broker A")

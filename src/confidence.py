@@ -1,7 +1,10 @@
 from collections import Counter
 from extraction import extract        # <-- importing from your own module
+from config import config
 
-def extract_with_consistency(text, n=5, temperature=0.7):
+def extract_with_consistency(text, n=None, temperature=None):
+    if n is None: n=config["n_samples"]
+    if temperature is None: temperature = config["confidence_temperature"]
     runs = [extract(text, temperature=temperature) for _ in range(n)]
     num_locations = len(runs[0].locations)
     field_names = ["address", "tiv_gbp", "construction", "occupancy",
