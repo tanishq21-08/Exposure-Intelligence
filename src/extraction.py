@@ -1,3 +1,5 @@
+import time
+import logging
 from openai import OpenAI
 from dotenv import load_dotenv
 from schema import Portfolio          # <-- importing from your own module
@@ -5,6 +7,9 @@ from config import config
 
 load_dotenv()
 client = OpenAI()
+
+logging.basicConfig(level=logging.INFO)   # so we can see retry messages
+logger = logging.getLogger(__name__)
 
 SYSTEM = """You extract commercial-property exposure data from messy broker Statements of Value.You are expert in this field and you realise that even a small error and cause a magnificent loss to the insurance companies so you are super careful while you fill in the values.
 
@@ -23,15 +28,34 @@ Rules:
 - For the address: if clearly incomplete or references elsewhere ("see broker note", "TBC"), return what's there but set confidence low (~0.3) and type derived.
 - If a value is genuinely missing, set value to null (numbers) or "UNKNOWN", and lower confidence. NEVER invent a value."""
 
-from config import config
+
+
+
 
 def extract(text, temperature=None):
     if temperature is None:
         temperature = config["extraction_temperature"]
-    completion = client.beta.chat.completions.parse(
-        model=config["model"],                    
-        temperature=temperature,
-        messages=[...],                            
-        response_format=Portfolio,
-    )
-    return completion.choices[0].message.parsed
+
+    max_retries = 3
+    base_delay = 1          # seconds
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            completion = client.beta.chat.completions.parse(
+                model=config["model"],
+                temperature=temperature,
+                messages=[
+                    {"role": "system", "content": SYSTEM},
+                    {"role": "user", "content": f"Statement of Values:\n\n{text}"},
+                ],
+                response_format=Portfolio,
+            )
+            return completion.choices[0].message.parsed          # success -> return immediately
+
+        except Exception as e:
+            if attempt == max_retries:
+                logger.error(f"Extraction failed after {max_retries} attempts: {e}")
+                raise                                            # give up, re-raise the error
+            delay = base_delay * (2 ** (attempt - 1))            # exponential backoff: 1, 2, 4...
+            logger.warning(f"Attempt {attempt} failed ({e}); retrying in {delay}s...")
+            time.sleep(delay)

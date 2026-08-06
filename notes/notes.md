@@ -36,6 +36,8 @@ Caveats: n=36(noisy), strict grading of ambigious fields inflates error somewhat
 
 
 
+After adding the calibration layer, I modularized the code and added the config file
 
+Now adding resilience layer ( why? because if my API Call fails, I don't want to )
 
 
