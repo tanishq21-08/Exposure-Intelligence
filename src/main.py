@@ -8,15 +8,15 @@ path = config["data_path"]
 
 if __name__ == "__main__":
     # ---- EXTRACTION (API calls) — uncomment to regenerate the JSON ----
-    # text = sheet_to_text(path, "Broker A - Meridian")
-    # consolidated = extract_with_consistency(text, n=5)
-    # with open("outputs/Broker_A_consistency.json", "w") as f:
-    #     json.dump(consolidated, f, indent=2)
+    text = sheet_to_text(path, "Broker A - Meridian")
+    consolidated = extract_with_consistency(text, n=5)
+    with open("outputs/Broker_A_consistency.json", "w") as f:
+        json.dump(consolidated, f, indent=2)
 
-    # ---- CALIBRATION (no API calls) — reads saved JSON ----
-    truth = load_ground_truth(path)
-    truth_A = {k: v for k, v in truth.items() if k[0] == "A"}
-    with open(config["output_path"]) as f:
-        consolidated = json.load(f)
+    # # ---- CALIBRATION (no API calls) — reads saved JSON ----
+    # truth = load_ground_truth(path)
+    # truth_A = {k: v for k, v in truth.items() if k[0] == "A"}
+    # with open(config["output_path"]) as f:
+    #     consolidated = json.load(f)
 
-    calibrate(consolidated, truth_A, "Broker A")
+    # calibrate(consolidated, truth_A, "Broker A")

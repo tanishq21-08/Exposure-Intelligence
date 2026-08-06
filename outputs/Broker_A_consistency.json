@@ -85,15 +85,15 @@
       ]
     },
     "sprinklered": {
-      "value": "Yes",
+      "value": "Y",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes"
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y"
       ]
     }
   },
@@ -136,13 +136,13 @@
     },
     "occupancy": {
       "value": "Manufacturing",
-      "confidence": 0.6,
-      "agreement": "3/5",
+      "confidence": 0.8,
+      "agreement": "4/5",
       "all_values": [
-        "Mixed/Other",
+        "Manufacturing",
+        "Manufacturing",
         "Manufacturing",
         "Mixed/Other",
-        "Manufacturing",
         "Manufacturing"
       ]
     },
@@ -183,15 +183,15 @@
       ]
     },
     "sprinklered": {
-      "value": "Yes",
+      "value": "Y",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes"
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y"
       ]
     }
   },
@@ -281,15 +281,15 @@
       ]
     },
     "sprinklered": {
-      "value": "No",
+      "value": "N",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "No",
-        "No",
-        "No",
-        "No",
-        "No"
+        "N",
+        "N",
+        "N",
+        "N",
+        "N"
       ]
     }
   },
@@ -324,10 +324,10 @@
       "agreement": "3/5",
       "all_values": [
         "Reinforced Concrete",
-        "UNKNOWN",
+        "Reinforced Concrete",
         "Reinforced Concrete",
         "UNKNOWN",
-        "Reinforced Concrete"
+        "UNKNOWN"
       ]
     },
     "occupancy": {
@@ -379,15 +379,15 @@
       ]
     },
     "sprinklered": {
-      "value": "Yes",
+      "value": "Y",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes"
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y"
       ]
     }
   },
@@ -477,15 +477,15 @@
       ]
     },
     "sprinklered": {
-      "value": "Yes",
+      "value": "Y",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes",
-        "Yes"
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y"
       ]
     }
   },
@@ -575,15 +575,15 @@
       ]
     },
     "sprinklered": {
-      "value": "No",
+      "value": "N",
       "confidence": 1.0,
       "agreement": "5/5",
       "all_values": [
-        "No",
-        "No",
-        "No",
-        "No",
-        "No"
+        "N",
+        "N",
+        "N",
+        "N",
+        "N"
       ]
     }
   }

@@ -1,10 +1,19 @@
 from collections import Counter
-from extraction import extract        # <-- importing from your own module
+from extraction import extract       
 from config import config
+from cache import get_cached, save_cache 
 
-def extract_with_consistency(text, n=None, temperature=None):
+def extract_with_consistency(text, n=None, temperature=None, use_cache=True):
     if n is None: n=config["n_samples"]
     if temperature is None: temperature = config["confidence_temperature"]
+
+    if use_cache:
+        cached = get_cached(text, n, temperature)
+        if cached is not None:
+            print("[cache hit] returning stored result — no API calls")
+            return cached
+
+    
     runs = [extract(text, temperature=temperature) for _ in range(n)]
     num_locations = len(runs[0].locations)
     field_names = ["address", "tiv_gbp", "construction", "occupancy",
@@ -23,4 +32,7 @@ def extract_with_consistency(text, n=None, temperature=None):
                 "all_values": values,
             }
         consolidated.append(location_result)
+
+    if use_cache:
+        save_cache(text, n, temperature, consolidated) 
     return consolidated

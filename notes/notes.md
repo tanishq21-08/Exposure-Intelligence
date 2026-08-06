@@ -38,6 +38,10 @@ Caveats: n=36(noisy), strict grading of ambigious fields inflates error somewhat
 
 After adding the calibration layer, I modularized the code and added the config file
 
-Now adding resilience layer ( why? because if my API Call fails, I don't want to )
+Now adding resilience layer...why? because if my api call fails on let's say 5th attempt, I don't want that my credits and money on my 4th attempt are also wasted, so I add a resilience layer like if the api call fails, wait for a while and then retry and then if again it fails, wait for some more time and then again retry...( learn more aboout this in detail from tutorials, how API calls actually work internally)
 
+Next step is Caching: Why Caching?
 
+If I am giving the same input twice, so it won't recall APIs, it won't call the LLM twice with the same inputs. It will use the already used result.
+
+( However, this step is just an engineering step and doesn't suit here well nor is recommended becasue with temperature being 0,7, we might expect different outcomes for the same input)
