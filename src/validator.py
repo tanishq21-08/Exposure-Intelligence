@@ -1,9 +1,10 @@
 """
-validator.py — Deterministic validation rules for extracted portfolios.
+validator.py — Deterministic validation rules for a consolidated portfolio.
 
-This is a PURE-CODE layer: no LLM, no API calls. It inspects an already-extracted
-Portfolio and returns a list of ValidationIssue objects. It never mutates or
-"fixes" the data — it only annotates, exactly like the confidence layer does.
+This is a PURE-CODE layer: no LLM, no API calls. It inspects the already-
+consolidated output of extract_with_consistency() and returns a list of
+ValidationIssue objects. It never mutates or "fixes" the data — it only
+annotates, exactly like the confidence layer does.
 
 Why this layer exists (the point to be able to defend out loud):
 A field can be HIGH-CONFIDENCE and STILL be wrong. If all 5 self-consistency
@@ -19,6 +20,16 @@ Severity has two levels, and the split is a real design decision:
                 unusually high storey count). Flag it, don't fail it.
 This mirrors how an underwriter triages a submission: hard-stop problems vs.
 things worth a second glance.
+
+INPUT SHAPE (what this module consumes):
+  A list of consolidated location dicts, as produced by extract_with_consistency.
+  Each location is a dict keyed by field name; each field is itself a dict:
+      loc["year_built"] == {"value": ..., "confidence": ..., "agreement": ...,
+                            "all_values": [...]}
+  So a field's value is reached as  loc["year_built"]["value"].
+  Numeric values arrive as STRINGS (e.g. "2050", "2,500,000") because the
+  voting step stringifies them; a genuinely-missing value arrives as None.
+  The helpers below (_get / _to_num / _is_unknown) absorb all of that.
 """
 
 import re
@@ -44,8 +55,8 @@ class ValidationIssue:
 # ---------------------------------------------------------------------------
 # Config-driven thresholds
 # (.get() with defaults so this module runs even before you add the keys to
-#  config.yaml — but you SHOULD add them, so the assumptions live in config
-#  and not buried in code. See note at the bottom of this file.)
+#  config.yaml — but you SHOULD add them, so the domain assumptions live in
+#  config and not buried in code. See note at the bottom of this file.)
 # ---------------------------------------------------------------------------
 
 YEAR_MIN     = config.get("year_min", 1600)      # older than this ~= extraction error
@@ -68,8 +79,17 @@ _POSTCODE_RE = re.compile(r"[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}", re.IGNORECASE)
 
 
 # ---------------------------------------------------------------------------
-# Small helpers
+# Shape accessor + small helpers
 # ---------------------------------------------------------------------------
+
+def _get(loc, field):
+    """Read a field's value out of a consolidated location dict.
+
+    This is the SINGLE place that knows the consolidated shape
+    ({"value": ..., "confidence": ..., ...}). If that shape ever changes,
+    only this function changes — every rule below stays untouched."""
+    return loc[field]["value"]
+
 
 def _is_unknown(value) -> bool:
     """UNKNOWN and None are legitimate 'we don't know' answers, not errors.
@@ -79,8 +99,8 @@ def _is_unknown(value) -> bool:
 
 def _to_num(value):
     """Coerce a value to a number. Returns None if it can't be parsed.
-    Handles stray commas / £ signs defensively, though structured extraction
-    should already hand us clean numbers."""
+    Consolidated numeric values arrive as strings (possibly with commas / £),
+    so this does the cleaning the voting step's str() made necessary."""
     if isinstance(value, (int, float)):
         return value
     if isinstance(value, str):
@@ -95,7 +115,7 @@ def _to_num(value):
 def _ref_for(loc, index: int) -> str:
     """Identify a property for the issue report. Prefer its address; fall back
     to a positional label if the address is missing/unknown."""
-    addr = getattr(loc.address, "value", None)
+    addr = _get(loc, "address")
     if addr and not _is_unknown(addr):
         return str(addr)
     return f"property #{index + 1}"
@@ -114,9 +134,9 @@ def _check_vocab(loc, ref):
     off-schema (e.g. returns 'Concrete' instead of 'Reinforced Concrete')."""
     issues = []
     checks = [
-        ("construction", loc.construction.value, CONSTRUCTION_VOCAB),
-        ("occupancy",    loc.occupancy.value,    OCCUPANCY_VOCAB),
-        ("sprinklered",  loc.sprinklered.value,  SPRINKLERED_VOCAB),
+        ("construction", _get(loc, "construction"), CONSTRUCTION_VOCAB),
+        ("occupancy",    _get(loc, "occupancy"),    OCCUPANCY_VOCAB),
+        ("sprinklered",  _get(loc, "sprinklered"),  SPRINKLERED_VOCAB),
     ]
     for field, value, vocab in checks:
         # UNKNOWN is a member of every vocab, so it passes naturally.
@@ -136,7 +156,7 @@ def _check_numeric(loc, ref):
     current_year = datetime.now().year
 
     # --- year_built ---
-    yb = loc.year_built.value
+    yb = _get(loc, "year_built")
     if not _is_unknown(yb):
         n = _to_num(yb)
         if n is None:
@@ -153,7 +173,7 @@ def _check_numeric(loc, ref):
                 f"year {int(n)} is before {YEAR_MIN}; almost certainly an extraction error", yb))
 
     # --- tiv_gbp ---
-    tiv = loc.tiv_gbp.value
+    tiv = _get(loc, "tiv_gbp")
     if not _is_unknown(tiv):
         n = _to_num(tiv)
         if n is None:
@@ -166,7 +186,7 @@ def _check_numeric(loc, ref):
                 f"TIV must be positive, got {n}", tiv))
 
     # --- storeys ---
-    st = loc.storeys.value
+    st = _get(loc, "storeys")
     if not _is_unknown(st):
         n = _to_num(st)
         if n is None:
@@ -178,13 +198,13 @@ def _check_numeric(loc, ref):
                 ref, "storeys", "error",
                 f"storeys must be positive, got {n}", st))
         elif n > STOREYS_MAX:
-            # Positive but implausible → warning, not a hard error.
+            # Positive but implausible -> warning, not a hard error.
             issues.append(ValidationIssue(
                 ref, "storeys", "warning",
                 f"{int(n)} storeys is unusually high (> {STOREYS_MAX}); worth a check", st))
 
     # --- floor_area_sqft ---
-    fa = loc.floor_area_sqft.value
+    fa = _get(loc, "floor_area_sqft")
     if not _is_unknown(fa):
         n = _to_num(fa)
         if n is None:
@@ -204,7 +224,7 @@ def _check_completeness(loc, ref):
     address with no detectable postcode might still be usable, but it's worth
     a human glance."""
     issues = []
-    addr = loc.address.value
+    addr = _get(loc, "address")
 
     if _is_unknown(addr):
         issues.append(ValidationIssue(
@@ -228,19 +248,16 @@ def _check_completeness(loc, ref):
 # Top-level entry point
 # ---------------------------------------------------------------------------
 
-def validate(portfolio):
+def validate(locations):
     """Run every deterministic rule over every property and return a flat list
     of ValidationIssue objects. Empty list == everything passed.
 
-    NOTE ON SCHEMA ASSUMPTIONS (the one thing to confirm against schema.py):
-      - portfolio.locations  is the list of properties
-      - each property exposes .address, .tiv_gbp, .construction, .occupancy,
-        .year_built, .storeys, .floor_area_sqft, .sprinklered
-      - each of those is an object with a .value attribute
-    If your container attribute is named differently (e.g. .properties), change
-    it in this one function."""
+    `locations` is the list returned by extract_with_consistency — a list of
+    consolidated location dicts (see INPUT SHAPE note at the top of this file).
+    All shape knowledge is confined to _get(); the rules never touch the layout
+    directly."""
     issues = []
-    for i, loc in enumerate(portfolio.locations):
+    for i, loc in enumerate(locations):
         ref = _ref_for(loc, i)
         issues.extend(_check_vocab(loc, ref))
         issues.extend(_check_numeric(loc, ref))
@@ -258,44 +275,42 @@ def summarize(issues):
 # ---------------------------------------------------------------------------
 # Self-test — runs with:  python src/validator.py   (from the project root)
 #
-# It uses SimpleNamespace stand-ins instead of your real Pydantic objects.
-# This works BECAUSE the validator only depends on the *shape* (a .value on
-# each field), not on the exact classes — so a lightweight fake is a valid
-# stand-in, and you can test every rule with no schema import and no API call.
-# Each field below is deliberately broken to trip a specific rule.
+# The fake locations below are plain dicts in the SAME shape that
+# extract_with_consistency produces (each field a {"value": ...} dict), so the
+# validator runs against realistic input with no schema import and no API call.
+# Numeric values are strings on purpose — that's how the voting step stores them.
+# Each field in `broken` is deliberately wrong to trip a specific rule.
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    from types import SimpleNamespace as N
 
     def field(v):
-        return N(value=v, confidence=1.0, source="self-test", type="verbatim")
+        # mirrors the consolidated field shape
+        return {"value": v, "confidence": 1.0, "agreement": "5/5", "all_values": []}
 
-    broken = N(
-        address=field("12"),                 # too short AND no postcode -> 2 warnings
-        tiv_gbp=field(-5),                    # negative -> error
-        construction=field("Concrete"),      # not in vocab (should be "Reinforced Concrete") -> error
-        occupancy=field("Office"),           # valid
-        year_built=field(2050),              # future -> error
-        storeys=field(0),                    # non-positive -> error
-        floor_area_sqft=field(1000),         # valid
-        sprinklered=field("Maybe"),          # not in vocab -> error
-    )
+    broken = {
+        "address":         field("12"),            # too short AND no postcode -> 2 warnings
+        "tiv_gbp":         field("-5"),            # negative -> error
+        "construction":    field("Concrete"),      # not in vocab -> error
+        "occupancy":       field("Office"),        # valid
+        "year_built":      field("2050"),          # future -> error
+        "storeys":         field("0"),             # non-positive -> error
+        "floor_area_sqft": field("1000"),          # valid
+        "sprinklered":     field("Maybe"),         # not in vocab -> error
+    }
 
-    clean = N(
-        address=field("12 King Street, Bristol BS1 4EF"),
-        tiv_gbp=field(2_500_000),
-        construction=field("Steel Frame"),
-        occupancy=field("Warehouse/Storage"),
-        year_built=field(1998),
-        storeys=field(3),
-        floor_area_sqft=field(45_000),
-        sprinklered=field("Y"),
-    )
+    clean = {
+        "address":         field("12 King Street, Bristol BS1 4EF"),
+        "tiv_gbp":         field("2,500,000"),     # comma string -> _to_num handles it
+        "construction":    field("Steel Frame"),
+        "occupancy":       field("Warehouse/Storage"),
+        "year_built":      field("1998"),
+        "storeys":         field("3"),
+        "floor_area_sqft": field("45000"),
+        "sprinklered":     field("Y"),
+    }
 
-    portfolio = N(locations=[broken, clean])
-
-    found = validate(portfolio)
+    found = validate([broken, clean])
     print(f"\n{summarize(found)}\n")
     for issue in found:
         print(f"[{issue.severity:7}] {issue.ref} :: {issue.field} — {issue.message}")
