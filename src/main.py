@@ -4,6 +4,7 @@ from calibration import load_ground_truth, calibrate
 from config import config
 from validator import validate, summarize as validation_summary
 from verification import verify_portfolio, summarize as verification_summary
+from grounding import ground_portfolio, summarize as grounding_summary
 
 path = config["data_path"]
 
@@ -28,6 +29,16 @@ if __name__ == "__main__":
     for f in flags:
         star = "  <-- HIGH-CONF CONFLICT" if f.high_conf_conflict else ""
         print(f"[{f.judgment}] {f.ref} :: {f.field} (conf {f.confidence}) — {f.reason}{star}")
+
+    # --- grounding pass (external geocoding, one field: address) ---
+    # "does this address resolve to a real place in the world?" — checks the
+    # extracted address against OpenStreetMap, not just against the source.
+    grounded = ground_portfolio(consolidated)
+    print("\n=== Grounding (geocoding) ===")
+    print(grounding_summary(grounded))
+    for r in grounded:
+        star = "  <-- FLAGGED" if r.flagged else ""
+        print(f"[resolved={r.resolved}] {r.ref} — {r.note}{star}")
 
     # --- calibration (compares to ground truth) ---
     # "is this value correct?" — the measurement harness
