@@ -45,3 +45,26 @@ Next step is Caching: Why Caching?
 If I am giving the same input twice, so it won't recall APIs, it won't call the LLM twice with the same inputs. It will use the already used result.
 
 ( However, this step is just an engineering step and doesn't suit here well nor is recommended becasue with temperature being 0,7, we might expect different outcomes for the same input)
+
+Now we also a deterministic validation rule ( hardcoded, not API calls): 
+Vocabulary checks (a value must be in the allowed set)
+contruction [Steel Frame, Reinforced Concrete, Masonry, Timber Frame, UNKNOWN]
+
+Occupancy : my occupancy vocab
+
+sprinklered [Y,N,UNKNOWN]
+
+Numerical Sanity Checks:
+
+1)year_built ≤ current year, and ≥ some floor (say 1600 — older is almost certainly an extraction error)
+2)tiv_gbp > 0
+3)storeys > 0 and ≤ some ceiling (say 200)
+4)floor_area_sqft > 0
+
+Completeness checks (softer — flag, don't fail):
+
+address looks incomplete — e.g. no UK postcode present, or suspiciously short. This one's a heuristic, so it's a warning, not an error.
+
+Why this deterministic layer exists:
+
+Field can be high-confidence and still fail validation. If all 5 self-consistency samples agree the year is 2050, confidence is 1.0 — but it's still wrong. Your confidence layer can't catch that, because it only measures agreement, not correctness. Deterministic rules catch a slice of the coherent-but-wrong errors that confidence is blind to.
